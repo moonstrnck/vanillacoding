@@ -1,0 +1,71 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+body {
+  font-family: "Pretendard";
+}
+
+.hero {
+  background-color: #000000;
+}
+
+.hero .title,
+.hero .subtitle {
+  color: #38d430;
+  font-weight: 800;
+}
+
+.tile a {
+  transition: all 0.3s linear;
+  text-decoration: none !important;
+}
+
+.tile a {
+  opacity: 0.6;
+}
+
+.tile a:hover {
+  opacity: 1;
+}
+
+.winner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(10, 10, 10, 0.8);
+  opacity: 1;
+}
+
+.winner canvas {
+  margin-top: -200px;
+}
+
+.winner.show {
+  display: flex;
+}
+
+.winner h2 {
+  color: white;
+  font-weight: 700;
+  font-size: 4rem;
+  margin-top: -100px;
+}
+
+.winner p {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.winner .test {
+  color: #38d430;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-right: 2px;
+}
