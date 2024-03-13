@@ -11,70 +11,70 @@
 
       it("NOT 논리 연산자", function () {
         const result = !false;
-        const guess = 바코;
+        const guess = true;
 
         expect(result).to.equal(guess);
       });
 
       it("NOT 논리 연산자", function () {
         const result = !!true;
-        const guess = 바코;
+        const guess = true;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean(NaN);
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean(undefined + 20);
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean("hello");
-        const guess = 바코;
+        const guess = true;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean("   ");
-        const guess = 바코;
+        const guess = true;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean("");
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean(-0);
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
-        const result = Boolean("null");
-        const guess = 바코;
+        const result = Boolean("null"); // 문자열
+        const guess = true;
 
         expect(result).to.equal(guess);
       });
 
       it("Truthy/Falsy 판별", function () {
         const result = Boolean(null);
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });

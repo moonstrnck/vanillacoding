@@ -20,7 +20,7 @@
         // 그러므로 '바코'를 지우고 2를 입력합니다.
         // 그 후, 과제 HTML 페이지를 새로고침 하고 테스트가 통과되는지 확인합니다.
         const result = 1 + 1;
-        const guess = 바코;
+        const guess = 2;
 
         expect(result).to.equal(guess);
 
@@ -31,7 +31,7 @@
         // 7 < 5 연산의 결과는 `false입니다. 그러므로 '바코'를 지우고 false를 입력합니다.
         // 그 후, 과제 HTML 페이지를 새로고침 하고 테스트가 통과되는지 확인합니다.
         const result = 7 < 5;
-        const guess = 바코;
+        const guess = false;
 
         expect(result).to.equal(guess);
       });
