@@ -48,7 +48,7 @@ input.addEventListener('keyup', function(event){
         let answer = input.value;
 
         if ( isNaN(answer) || answer.length !== 3) {
-            alert("세 자리 숫자를 입력해주세요.");
+            alert("세 자리 숫자를 입력해주세요."); 
             input.value = "";
         } else {
             count ++;
