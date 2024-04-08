@@ -45,7 +45,6 @@ const gameOver = document.querySelector('.result');
 const answerSheet = document.querySelector(".answer-sheet");
 input.addEventListener('keyup', function(event){
     if (event.keyCode === 13) { // Enter key 클릭 이벤트 
-        console.log('enter!');
         let answer = input.value;
 
         if ( isNaN(answer) || answer.length !== 3) {
