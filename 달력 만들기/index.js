@@ -94,7 +94,6 @@ prev.addEventListener("click", function(event){
         c.currentMonth -= 1;
     }
     c.totalDays = new Date(c.currentYear,  c.currentMonth + 1, 0).getDate();
-    console.log(c.currentMonth, c.currentYear, c.totalDays, c.firstIndex)
     if (c.currentYear < 1) return;
     renderCalendar(c, target);
 });
@@ -106,7 +105,6 @@ next.addEventListener("click", function(event){
         c.currentMonth += 1;
     }
     c.totalDays = new Date(c.currentYear,  c.currentMonth + 1, 0).getDate();
-    console.log(c.currentMonth, c.currentYear, c.totalDays, c.firstIndex)
     const target = event.target;
     renderCalendar(c, target);
 });
