@@ -10,3 +10,73 @@ h1 {
   text-align: center;
   font-size: 72px;
 }
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.image-box img {
+  width: 150px;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.calendar-area {
+  text-align: center;
+}
+
+.current-day p {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.current-month {
+  font-size: 24px;
+}
+
+.calendar {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+.calendar table {
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.calendar tbody td:first-child {
+  color: tomato;
+}
+
+.calendar tbody td:last-child {
+  color: cornflowerblue;
+}
+
+.calendar .button {
+  position: absolute;
+  font-size: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calendar .button.prev {
+  left: 0;
+}
+
+.calendar .button.next {
+  right: 0
+}

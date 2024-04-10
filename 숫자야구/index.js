@@ -66,21 +66,19 @@ input.addEventListener('keyup', function(event){
             } else if (strike > 0 || ball > 0) {
                 const row = document.createElement("div");
                 row.classList.add('row');
-                row.innerHTML = `<div class="row">
+                row.innerHTML = `
                     <p class="try">${count}</p>
                     <p>Answer: <span class="answer">${answer}</span></p>
                     <p>Strike: <span class="strike">${strike}</span></p>
-                    <p>Ball: <span class="ball">${ball}</span></p>
-                </div>`
+                    <p>Ball: <span class="ball">${ball}</span></p>`
                 answerSheet.appendChild(row);
             } else {
                 const row = document.createElement("div");
                 row.classList.add('row');
-                row.innerHTML = `<div class="row">
+                row.innerHTML = `
                     <p class="try">${count}</p>
                     <p>Answer: <span class="answer">${answer}</span></p>
-                    <p class="out">Out</p>
-                </div>`
+                    <p class="out">Out</p>`
                 answerSheet.appendChild(row);
             }
             
