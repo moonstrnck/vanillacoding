@@ -1,9 +1,19 @@
-let count = 8;
-let gameTimer = null;
+let count;
+let timer;
+let timeOut;
+const stage = document.querySelector('.game-stage');
+const startBtn = document.querySelector('.button.start');
+const timerEl = document.querySelector('.timer');
+const countEl = document.querySelector('.count');
+const infoEl = document.querySelector('.game-info');
+
+
 
 function gameStart(){
-    
-    const stage = document.querySelector('.game-stage');
+    count = 8;
+    let t = 25;
+    countEl.textContent = `${count} 명`;
+    timerEl.textContent =  `${t} 초`;
     stage.innerHTML = "";
     for (let i = 0; i < 16; i++){
         const card = document.createElement('div');
@@ -23,27 +33,20 @@ function gameStart(){
         `;
     }
 
-    document.querySelector('.game-info').style.display = 'block';
+    infoEl.style.display = 'block';
     
-    const gameTimer = document.querySelector('.timer');
-    // const gameCount = document.querySelector('.count');
-    let t = 25;
-    const timer = setInterval(function(){
+    timer = setInterval(function(){
         t--;
-        gameTimer.textContent = `${t}초`;
+        timerEl.textContent = `${t} 초`;
         if (t === 0 ) clearInterval(timer);
     }, 1000)
-
-    // const timeOut = setTimeout(function(){
-    //     gameOver();
-    // }, 25000)
+    
+    timeOut = setTimeout(function(){
+        console.log('시간초과');
+        gameOver(count);
+    }, 25000)
 }
 
-function gameOver(){
-
-}
-
-gameOver();
 
 function getLandomIndex(length){
     let array = [];
@@ -57,7 +60,60 @@ function getLandomIndex(length){
     return array;
 }
 
-const startBtn = document.querySelector('.button.start');
 startBtn.addEventListener('click', function(){
-    gameStart();
+    if (startBtn.innerText === '시작') {
+        gameStart();
+        startBtn.textContent = '재시작';
+    } else {
+        stage.innerHTML = `<img src="bgs/bg.png" alt="">`;
+        infoEl.style.display = "none";
+        startBtn.textContent = '시작';
+        clearInterval(timer);
+        clearTimeout(timeOut);
+        activeCard = [];
+    }
 })
+
+
+let activeCard = [];
+stage.addEventListener('click', function(event){
+    let target = event.target.closest('.card');
+    cardCompare(target);
+})
+
+function cardCompare(target){
+    if(target.classList.contains('active')) return;
+    target.classList.add('active');
+    activeCard.push(target);
+    
+    if (activeCard.length === 2) {
+        if ( activeCard[0].getAttribute('data-id') === activeCard[1].getAttribute('data-id') ){
+            console.log('일치')
+            activeCard = [];
+            count--;
+            countEl.textContent = `${count} 명`;
+
+        } else {
+            console.log('불일치')
+            setTimeout(function(){
+                activeCard[0].classList.remove('active');
+                activeCard[1].classList.remove('active');
+                activeCard.splice(0, 2);
+            }, 500)
+        }
+    }
+
+    if (count === 0) gameOver(count);
+}
+
+function gameOver(count){
+    clearInterval(timer);
+    clearTimeout(timeOut);
+
+    if (count === 0) {
+        stage.innerHTML = `<img src="bgs/win-bg1.jpg" alt="">`;
+    } else {
+        stage.innerHTML = `<img src="bgs/lose-bg1.jpg" alt="">`;
+    }
+    activeCard = [];
+}

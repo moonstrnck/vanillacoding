@@ -49,7 +49,7 @@ button {
     margin: 50px auto;
 }
 
-.game-stage .start-img {
+.game-stage > img {
     /* display: none; */
     position: absolute;
     width: 100%;
