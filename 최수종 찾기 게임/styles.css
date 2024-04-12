@@ -40,12 +40,12 @@ button {
 
 .game-stage {
     position: relative;
-    width: 430px;
-    height: 430px;
+    width: 415px;
+    height: 415px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 10px;
+    gap: 5px;
     margin: 50px auto;
 }
 

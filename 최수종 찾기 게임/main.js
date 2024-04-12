@@ -12,9 +12,11 @@ const infoEl = document.querySelector('.game-info');
 function gameStart(){
     count = 8;
     let t = 25;
+    infoEl.style.display = 'block';
     countEl.textContent = `${count} 명`;
     timerEl.textContent =  `${t} 초`;
     stage.innerHTML = "";
+
     for (let i = 0; i < 16; i++){
         const card = document.createElement('div');
         card.classList.add('card');
@@ -22,7 +24,7 @@ function gameStart(){
     }
     
     const cards = document.querySelectorAll('.card');
-    let randomArr = getLandomIndex(cards.length);
+    const randomArr = getLandomIndex(cards.length);
     for (let i = 0; i < randomArr.length; i++) {
         let n = i + 1 > 8 ? (i + 1) - 8 : i + 1;
 
@@ -32,8 +34,6 @@ function gameStart(){
             <img class="back" src="imgs/0${n}.jpg" alt="">
         `;
     }
-
-    infoEl.style.display = 'block';
     
     timer = setInterval(function(){
         t--;
@@ -78,11 +78,11 @@ startBtn.addEventListener('click', function(){
 let activeCard = [];
 stage.addEventListener('click', function(event){
     let target = event.target.closest('.card');
+    if(!target || target.classList.contains('active')) return;
     cardCompare(target);
 })
 
 function cardCompare(target){
-    if(target.classList.contains('active')) return;
     target.classList.add('active');
     activeCard.push(target);
     
@@ -99,7 +99,7 @@ function cardCompare(target){
                 activeCard[0].classList.remove('active');
                 activeCard[1].classList.remove('active');
                 activeCard.splice(0, 2);
-            }, 500)
+            }, 400)
         }
     }
 
@@ -109,11 +109,13 @@ function cardCompare(target){
 function gameOver(count){
     clearInterval(timer);
     clearTimeout(timeOut);
+    activeCard = [];
 
     if (count === 0) {
+        console.log('Win!')
         stage.innerHTML = `<img src="bgs/win-bg1.jpg" alt="">`;
     } else {
+        console.log('Lose')
         stage.innerHTML = `<img src="bgs/lose-bg1.jpg" alt="">`;
     }
-    activeCard = [];
 }
